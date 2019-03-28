@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.421
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rainnier.Algorithm.Tree", "Rainnier.Algorithm\Rainnier.Algorithm.Tree.csproj", "{8B48F312-30E8-49E5-92D8-342C9EB289A0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rainnier.Algorithm.LinkList", "Rainnier.Algorithm.LinkList\Rainnier.Algorithm.LinkList.csproj", "{EDF73110-AC93-4639-9A60-2E641DCF6241}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rainnier.Algorithm.Stack", "Rainnier.Algorithm.Stack\Rainnier.Algorithm.Stack.csproj", "{C0665236-D008-4799-AF16-D939A1CF5016}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rainnier.Algorithm.Sort", "Rainnier.Algorithm.Sort\Rainnier.Algorithm.Sort.csproj", "{BDEC5341-2949-4EA6-8B41-0163F1F9FD6A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rainnier.Algorithm.Graph", "Rainnier.Algorithm.Graph\Rainnier.Algorithm.Graph.csproj", "{84A8B27B-3891-4AC6-8C7C-BE97E6025495}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8B48F312-30E8-49E5-92D8-342C9EB289A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B48F312-30E8-49E5-92D8-342C9EB289A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B48F312-30E8-49E5-92D8-342C9EB289A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B48F312-30E8-49E5-92D8-342C9EB289A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EDF73110-AC93-4639-9A60-2E641DCF6241}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDF73110-AC93-4639-9A60-2E641DCF6241}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDF73110-AC93-4639-9A60-2E641DCF6241}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDF73110-AC93-4639-9A60-2E641DCF6241}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0665236-D008-4799-AF16-D939A1CF5016}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0665236-D008-4799-AF16-D939A1CF5016}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0665236-D008-4799-AF16-D939A1CF5016}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0665236-D008-4799-AF16-D939A1CF5016}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BDEC5341-2949-4EA6-8B41-0163F1F9FD6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDEC5341-2949-4EA6-8B41-0163F1F9FD6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDEC5341-2949-4EA6-8B41-0163F1F9FD6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDEC5341-2949-4EA6-8B41-0163F1F9FD6A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84A8B27B-3891-4AC6-8C7C-BE97E6025495}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84A8B27B-3891-4AC6-8C7C-BE97E6025495}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84A8B27B-3891-4AC6-8C7C-BE97E6025495}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84A8B27B-3891-4AC6-8C7C-BE97E6025495}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {58918ECE-1C70-41E1-B13D-27CD823FAFDE}
+	EndGlobalSection
+EndGlobal
