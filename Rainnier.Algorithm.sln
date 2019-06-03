@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rainnier.Algorithm.Sort", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rainnier.Algorithm.Graph", "Rainnier.Algorithm.Graph\Rainnier.Algorithm.Graph.csproj", "{84A8B27B-3891-4AC6-8C7C-BE97E6025495}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rainier.DynamicPlanning", "Rainier.DynamicPlanning\Rainier.DynamicPlanning.csproj", "{420DE1AC-190D-47FB-8600-7B97FC171001}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{84A8B27B-3891-4AC6-8C7C-BE97E6025495}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{84A8B27B-3891-4AC6-8C7C-BE97E6025495}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{84A8B27B-3891-4AC6-8C7C-BE97E6025495}.Release|Any CPU.Build.0 = Release|Any CPU
+		{420DE1AC-190D-47FB-8600-7B97FC171001}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{420DE1AC-190D-47FB-8600-7B97FC171001}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{420DE1AC-190D-47FB-8600-7B97FC171001}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{420DE1AC-190D-47FB-8600-7B97FC171001}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
