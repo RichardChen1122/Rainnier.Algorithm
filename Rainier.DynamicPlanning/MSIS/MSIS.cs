@@ -54,6 +54,34 @@ namespace Rainier.DynamicPlanning
             return result;
         }
 
+        public int[] maxSubIncreaseArray(int[] array, int[] dp)
+        {
+            int len = 0;
+            int index = 0;
+            for(int i = 0; i < dp.Length; i++)
+            {
+                if (dp[i] > len)
+                {
+                    len = dp[i];
+                    index = i;
+                }
+            }
+
+            int[] result = new int[len];
+            result[--len] = array[index];
+
+            for(int i= index; i >= 0; i--)
+            {
+                if(array[i]<array[index] && dp[i] == dp[index] - 1)
+                {
+                    result[--len] = array[i];
+                    index = i;
+                }
+            }
+
+            return result;
+        }
+
         public List<int> maxSubIncreaseArray(int[] array)
         {
             var len = array.Length;

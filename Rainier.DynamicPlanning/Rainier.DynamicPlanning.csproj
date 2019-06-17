@@ -43,6 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FeiBoNaQiShuLie.cs" />
+    <Compile Include="LCS\LCS.cs" />
     <Compile Include="MinimumDistance\MinimumDistance.cs" />
     <Compile Include="MSIS\MSIS.cs" />
     <Compile Include="Program.cs" />
@@ -51,8 +53,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="LCS\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

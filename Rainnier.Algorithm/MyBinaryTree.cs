@@ -8,6 +8,7 @@ namespace Rainnier.Algorithm
 {
     public class MyBinaryTree<T>
     {
+        public static int count = 0;
         Node<T> root;
 
         public Node<T> Root { get => root; }
@@ -112,8 +113,10 @@ namespace Rainnier.Algorithm
 
         public void MidOrder(Node<T> node)
         {
+            
             if (node != null)
             {
+                count++;
                 MidOrder(node.LeftChild);
                 Console.WriteLine(node.Data.ToString());
                 MidOrder(node.RightChild);
@@ -241,6 +244,27 @@ namespace Rainnier.Algorithm
                 }
             }
         }
+        #endregion
+
+        #region 其他算法问题
+        public Node<T> LowestCommonAncestor(Node<T> root, Node<T> p, Node<T> q)
+        {
+            if (root == null || p == root || q == root)
+            {
+                return root;
+
+            }
+
+            var left = LowestCommonAncestor(root.LeftChild, p, q);
+            var right = LowestCommonAncestor(root.RightChild, p, q);
+            if(left!=null && right != null)
+            {
+                return root;
+            }
+            return left == null ? right : left;
+        }
+    
+
         #endregion
     }
 }

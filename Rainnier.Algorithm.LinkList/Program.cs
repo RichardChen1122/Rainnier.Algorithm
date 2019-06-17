@@ -18,6 +18,9 @@ namespace Rainnier.Algorithm.LinkList
             listA.AppendAtTail(31);
 
 
+            //listA.Reverse();
+            //listA.Output();
+
             var listB = new MyLinkList<int>(1);
             listB.AppendAtTail(3);
             listB.AppendAtTail(8);

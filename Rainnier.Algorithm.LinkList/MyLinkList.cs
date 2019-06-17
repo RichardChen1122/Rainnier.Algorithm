@@ -61,6 +61,23 @@ namespace Rainnier.Algorithm.LinkList
                 current = current.Next;
             }
         }
+
+        public void Reverse()
+        {
+            Node<T> previous = null;
+            var current = Header;
+            Node<T> temp = null;
+
+            while (current != null)
+            {
+                temp = current.Next;
+                current.Next = previous;
+                previous = current;
+                current = temp;
+            }
+
+            Header = previous;
+        }
         #endregion
     }
 }

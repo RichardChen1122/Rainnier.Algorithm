@@ -302,6 +302,65 @@ namespace Rainnier.Algorithm
             }
         }
         #endregion
+
+        #region 其他算法问题
+        //以下的LCA算法都有Bug， 如果P或Q 不存在在这个树当中，则不能正确判断LCA
+        //非搜索树的通用算法
+        public Node LowestCommonAncestor(Node root, int p, int q)
+        {
+            if (root == null || p == root.Data || q == root.Data)
+            {
+                return root;
+
+            }
+
+            var left = LowestCommonAncestor(root.LeftChild, p, q);
+            var right = LowestCommonAncestor(root.RightChild, p, q);
+            if (left != null && right != null)
+            {
+                return root;
+            }
+            return left == null ? right : left;
+        }
+
+        //针对搜索树的优化算法
+        public Node LowestCommonAncestorForBST(Node root, int p, int q)
+        {
+
+            if (p > root.Data && q > root.Data)
+            {
+                root = LowestCommonAncestorForBST(root.RightChild, p, q);
+            }
+
+            if (p < root.Data && q < root.Data)
+            {
+                root = LowestCommonAncestorForBST(root.LeftChild, p, q);
+            }
+
+            return root;
+        }
+
+        //针对搜索树的优化算法(非递归算法)
+        public Node LCAForBSTNoRecursive(Node root, int p, int q)
+        {
+
+            while ((p - root.Data) * (q - root.Data) > 0)
+            {
+                if (p > root.Data && q > root.Data)
+                {
+                    root = root.RightChild;
+                }
+                else
+                {
+                    root = root.LeftChild;
+                }
+            }
+
+            return root;
+        }
+
+
+        #endregion
     }
     public class Node
     {
