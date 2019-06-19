@@ -31,6 +31,7 @@ namespace Rainnier.Algorithm.Sort
         }
         public static void QuickSortMethod(int[] array, int left, int right)
         {
+
             if (left < right)
             {
                 int i = Division(array, left, right);
