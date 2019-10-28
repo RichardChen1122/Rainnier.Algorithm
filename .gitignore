@@ -33,4 +33,12 @@
 /Rainnier.Algorithm/bin/Debug
 /Rainnier.Algorithm.LinkList/bin/Debug
 /.vs/config
+/Rainnier.Algorithm.ThreadSync/obj
+/Rainnier.Algorithm.ThreadSync/bin
+/Rainnier.Algorithm.Stack/obj/Release
+/Rainier.DynamicPlanning/obj/Release
+/Rainnier.Algorithm/obj/Release
+/Rainnier.Algorithm.Graph/obj/Release
+/Rainnier.Algorithm.LinkList/obj/Release
 /Rainnier.Algorithm.Sort/bin/Debug
+/Rainnier.Algorithm.Sort/obj/Release
