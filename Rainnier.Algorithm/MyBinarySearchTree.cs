@@ -89,7 +89,7 @@ namespace Rainnier.Algorithm
                 }
                 else
                 {
-
+                    return;
                 }
             }
 
