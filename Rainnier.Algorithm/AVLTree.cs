@@ -92,20 +92,93 @@ namespace Rainnier.Algorithm
         }
         #endregion 基本方法
 
-        public AvlNode<int> Insert(int data, AvlNode<int> node)
+        public void Insert(int data, AvlNode<int> node)
         {
-            if (node == null)
+            var currentNode = node;
+            AvlNode<int> parent = null;
+            while (currentNode != null)
             {
-                node = new AvlNode<int>(data);
-                node.LeftChild = null;
-                node.RightChild = null;
-            }
-            else if (data < node.Data)
-            {
-                node.LeftChild = Insert(data, node.LeftChild);
+                parent = currentNode;
+                if (data < currentNode.Data)
+                {
+                    currentNode = currentNode.LeftChild;
+                }
+                else if(data > currentNode.Data)
+                {
+                    currentNode = currentNode.RightChild;
+                }
+                else
+                {
+                    return;
+                }
             }
 
-            return node;
+            var insertNode = new AvlNode<int>(data);
+            if (insertNode.Data < parent.Data)
+            {
+                parent.LeftChild = insertNode;
+            }
+            else
+            {
+                parent.RightChild = insertNode;
+            }
+
+            insertNode.Parent = parent;
+            insertNode.BlanceValue = default(int);
+
+            currentNode = insertNode;
+            parent = insertNode.Parent;
+
+            while (parent != null)
+            {
+                if(currentNode == parent.LeftChild)
+                {
+                    parent.BlanceValue++;
+                }
+                else
+                {
+                    parent.BlanceValue--;
+                }
+                //如果parent 的Blancevalue 为0, 不需平衡，直接return
+                if (parent.BlanceValue == 0)
+                {
+                    return;
+                }
+                else if (parent.BlanceValue == -1 || parent.BlanceValue == 1)
+                {
+                    currentNode = parent;
+                    parent = parent.Parent;
+                    continue;
+                }
+                else if (parent.BlanceValue == 2)
+                {
+                    //左左型
+                    if (insertNode.Data < currentNode.LeftChild.Data)
+                    {
+                        //TODO: 右旋
+                    }
+                    //左右型
+                    else
+                    {
+                        //TODO: 先左旋再右旋
+                    }
+                    break;
+                }
+                else if (parent.BlanceValue == -2)
+                {
+                    //右右型
+                    if (insertNode.Data > currentNode.LeftChild.Data)
+                    {
+                        //TODO: 左旋
+                    }
+                    //右左型
+                    else
+                    {
+                        //TODO: 先右旋再左旋
+                    }
+                    break;
+                }
+            }
         }
 
         #region 旋转操作
@@ -121,8 +194,8 @@ namespace Rainnier.Algorithm
         public T Data { get; set; }
         public AvlNode<T> LeftChild { get; set; }
         public AvlNode<T> RightChild { get; set; }
-
-        public int Height { get; set; }
+        public AvlNode<T> Parent { get; set; }
+        public int BlanceValue { get; set; }
 
         public AvlNode(T data)
         {
