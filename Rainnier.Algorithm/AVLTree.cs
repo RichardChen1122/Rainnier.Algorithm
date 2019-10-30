@@ -10,7 +10,13 @@ namespace Rainnier.Algorithm
     {
         AvlNode<int> root;
 
-        public AvlNode<int> Root { get => root; }
+        public AvlNode<int> Root {
+            get => root;
+            set
+            {
+                root = value;
+            }
+        }
 
         public AVLTree(AvlNode<int> rootNode)
         {
@@ -92,9 +98,9 @@ namespace Rainnier.Algorithm
         }
         #endregion 基本方法
 
-        public void Insert(int data, AvlNode<int> node)
+        public void Insert(int data)
         {
-            var currentNode = node;
+            var currentNode = Root;
             AvlNode<int> parent = null;
             while (currentNode != null)
             {
@@ -153,28 +159,32 @@ namespace Rainnier.Algorithm
                 else if (parent.BlanceValue == 2)
                 {
                     //左左型
-                    if (insertNode.Data < currentNode.LeftChild.Data)
+                    if (insertNode.Data < currentNode.Data)
                     {
                         //TODO: 右旋
+                        rightRotate(parent);
                     }
                     //左右型
                     else
                     {
                         //TODO: 先左旋再右旋
+                        leftRightRotate(parent);
                     }
                     break;
                 }
                 else if (parent.BlanceValue == -2)
                 {
                     //右右型
-                    if (insertNode.Data > currentNode.LeftChild.Data)
+                    if (insertNode.Data > currentNode.Data)
                     {
                         //TODO: 左旋
+                        leftRotate(parent);
                     }
                     //右左型
                     else
                     {
                         //TODO: 先右旋再左旋
+                        rightLeftRotate(parent);
                     }
                     break;
                 }
@@ -184,9 +194,174 @@ namespace Rainnier.Algorithm
         #region 旋转操作
         private void leftRotate(AvlNode<int> avlNode)
         {
+            var parent = avlNode;
+            var grandParent = avlNode.Parent;
+            var subR = parent.RightChild;
 
+            if (subR.LeftChild == null)
+            {
+                parent.RightChild = null;
+                subR.LeftChild = parent;
+                parent.Parent = subR;
+            }
+            else
+            {
+                var subRL = subR.LeftChild;
+                parent.RightChild = null;
+                subR.LeftChild = parent;
+                parent.Parent = subR;
+                subRL.Parent = parent;
+                parent.RightChild = subRL;
+            }
+
+            if (grandParent == null)
+            {
+                subR.Parent = null;
+                Root = subR;
+            }
+            else
+            {
+                if (parent.Data < grandParent.Data)
+                {
+                    grandParent.LeftChild = subR;
+                }
+                else
+                {
+                    grandParent.RightChild = subR;
+                }
+            }
+            parent.BlanceValue = 0;
+            subR.BlanceValue = 0;
+            avlNode = subR;
+        }
+
+        private void rightRotate(AvlNode<int> avlNode)
+        {
+            var parent = avlNode;
+            var grandParent = avlNode.Parent;
+            var subL = parent.LeftChild;
+
+            if (subL.RightChild == null)
+            {
+                parent.LeftChild = null;
+                subL.RightChild = parent;
+                parent.Parent = subL;
+            }
+            else
+            {
+                var subLR = subL.RightChild;
+                parent.LeftChild = null;
+                subL.RightChild = parent;
+                parent.Parent = subL;
+                parent.LeftChild = subLR;
+                subLR.Parent = parent;
+            }
+
+            if (grandParent == null)
+            {
+                subL.Parent = null;
+                Root = subL;
+            }
+            else
+            {
+                if (parent.Data < grandParent.Data)
+                {
+                    grandParent.LeftChild = subL;
+                }
+                else
+                {
+                    grandParent.RightChild = subL;
+                }
+            }
+            parent.BlanceValue = 0;
+            subL.BlanceValue = 0;
+            avlNode = subL;
+        }
+
+        private void leftRightRotate(AvlNode<int> avlNode)
+        {
+            var parent = avlNode;
+            var subL = parent.LeftChild;
+            var subLsubL = subL.LeftChild;
+
+            var subLsubLR = subLsubL.RightChild;
+
+            subL.LeftChild = subLsubLR;
+            subLsubLR.Parent = subL;
+            subLsubLR.LeftChild = subLsubL;
+            subLsubL.Parent = subLsubLR;
+
+            subLsubL.BlanceValue = 0;
+            subLsubLR.BlanceValue = 1;
+
+            rightRotate(parent);
+        }
+
+        private void rightLeftRotate(AvlNode<int> avlNode)
+        {
+            var parent = avlNode;
+            var subR = parent.RightChild;
+            if (subR.RightChild != null)
+            {
+                var subRsubR = subR.RightChild;
+                var subRsubRL = subRsubR.LeftChild;
+
+                subR.RightChild = subRsubRL;
+                subRsubRL.Parent = subR;
+                subRsubRL.RightChild = subRsubR;
+                subRsubR.Parent = subRsubRL;
+
+                subRsubR.BlanceValue = 0;
+                subRsubRL.BlanceValue = -1;
+            }
+            else
+            {
+                var subRL = subR.LeftChild;
+                parent.RightChild = subRL;
+                subRL.Parent = parent;
+                subRL.RightChild = subR;
+                subR.Parent = subRL;
+            }
+
+            leftRotate(parent);
         }
         #endregion
+
+        public void MidOrder(AvlNode<int> node)
+        {
+            if (node != null)
+            {
+                MidOrder(node.LeftChild);
+                Console.WriteLine(node.Data.ToString());
+                MidOrder(node.RightChild);
+            }
+        }
+
+        public void LevelOrder(AvlNode<int> node)
+        {
+            if (node == null)
+            {
+                return;
+            }
+
+            var queue = new Queue<AvlNode<int>>();
+
+            queue.Enqueue(node);
+            while (queue.Count > 0)
+            {
+                var first = queue.Dequeue();
+                Console.WriteLine(first.Data);
+                if (first.LeftChild != null)
+                {
+                    queue.Enqueue(first.LeftChild);
+                }
+                if (first.RightChild != null)
+                {
+                    queue.Enqueue(first.RightChild);
+                }
+            }
+        }
+
     }
 
     public class AvlNode<T>

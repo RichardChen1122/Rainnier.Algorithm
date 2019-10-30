@@ -43,6 +43,22 @@ namespace Rainnier.Algorithm
 
             var test = testSearchTree.LCAForBSTNoRecursive(rootNode2, 54, 78);
             Console.Write(test.Data);
+
+            var root3 = new AvlNode<int>(3);
+            var avlTree = new AVLTree(root3);
+            avlTree.Insert(2);
+            avlTree.Insert(1);
+            avlTree.Insert(4);
+            avlTree.Insert(5);
+            avlTree.Insert(6);
+            avlTree.Insert(7);
+            avlTree.Insert(10);
+            avlTree.Insert(9);
+            //lTree.Insert(8);
+
+            avlTree.LevelOrder(avlTree.Root);
+
+
             Console.ReadKey();
         }
     }
