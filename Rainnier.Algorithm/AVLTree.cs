@@ -229,6 +229,7 @@ namespace Rainnier.Algorithm
                 {
                     grandParent.RightChild = subR;
                 }
+                subR.Parent = grandParent;
             }
             parent.BlanceValue = 0;
             subR.BlanceValue = 0;
@@ -272,6 +273,7 @@ namespace Rainnier.Algorithm
                 {
                     grandParent.RightChild = subL;
                 }
+                subL.Parent = grandParent;
             }
             parent.BlanceValue = 0;
             subL.BlanceValue = 0;
@@ -301,6 +303,16 @@ namespace Rainnier.Algorithm
         {
             var parent = avlNode;
             var subR = parent.RightChild;
+            var subRL = subR.LeftChild;
+            var bv = subRL.BlanceValue;
+
+            rightRotate(subR);
+            leftRotate(parent);
+            if (bv == -1)
+            {
+                parent.BlanceValue = 1;
+                subR.BlanceValue = 0;
+            }
             if (subR.RightChild != null)
             {
                 var subRsubR = subR.RightChild;
@@ -321,6 +333,7 @@ namespace Rainnier.Algorithm
                 subRL.Parent = parent;
                 subRL.RightChild = subR;
                 subR.Parent = subRL;
+                subR.LeftChild = null;
             }
 
             leftRotate(parent);
