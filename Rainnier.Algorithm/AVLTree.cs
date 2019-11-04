@@ -198,20 +198,19 @@ namespace Rainnier.Algorithm
             var grandParent = avlNode.Parent;
             var subR = parent.RightChild;
 
-            if (subR.LeftChild == null)
+            var subRL = subR.LeftChild;
+            parent.RightChild = subRL;
+            parent.Parent = subR;
+            subR.LeftChild = parent;
+
+            if (subRL != null)
             {
-                parent.RightChild = null;
-                subR.LeftChild = parent;
-                parent.Parent = subR;
+                subRL.Parent = parent;
+                parent.BlanceValue++;
             }
             else
             {
-                var subRL = subR.LeftChild;
-                parent.RightChild = null;
-                subR.LeftChild = parent;
-                parent.Parent = subR;
-                subRL.Parent = parent;
-                parent.RightChild = subRL;
+                parent.BlanceValue = parent.BlanceValue + 2;
             }
 
             if (grandParent == null)
@@ -231,8 +230,7 @@ namespace Rainnier.Algorithm
                 }
                 subR.Parent = grandParent;
             }
-            parent.BlanceValue = 0;
-            subR.BlanceValue = 0;
+            subR.BlanceValue ++;
             avlNode = subR;
         }
 
@@ -242,20 +240,19 @@ namespace Rainnier.Algorithm
             var grandParent = avlNode.Parent;
             var subL = parent.LeftChild;
 
-            if (subL.RightChild == null)
+            var subLR = subL.RightChild;
+            parent.LeftChild = subLR;
+            parent.Parent = subL;
+            subL.RightChild = parent;
+
+            if (subLR != null)
             {
-                parent.LeftChild = null;
-                subL.RightChild = parent;
-                parent.Parent = subL;
+                subLR.Parent = parent;
+                parent.BlanceValue--;
             }
             else
             {
-                var subLR = subL.RightChild;
-                parent.LeftChild = null;
-                subL.RightChild = parent;
-                parent.Parent = subL;
-                parent.LeftChild = subLR;
-                subLR.Parent = parent;
+                parent.BlanceValue = parent.BlanceValue - 2;
             }
 
             if (grandParent == null)
@@ -275,68 +272,22 @@ namespace Rainnier.Algorithm
                 }
                 subL.Parent = grandParent;
             }
-            parent.BlanceValue = 0;
-            subL.BlanceValue = 0;
+
+            subL.BlanceValue--;
             avlNode = subL;
         }
 
         private void leftRightRotate(AvlNode<int> avlNode)
         {
-            var parent = avlNode;
-            var subL = parent.LeftChild;
-            var subLsubL = subL.LeftChild;
+            leftRotate(avlNode.LeftChild);
 
-            var subLsubLR = subLsubL.RightChild;
-
-            subL.LeftChild = subLsubLR;
-            subLsubLR.Parent = subL;
-            subLsubLR.LeftChild = subLsubL;
-            subLsubL.Parent = subLsubLR;
-
-            subLsubL.BlanceValue = 0;
-            subLsubLR.BlanceValue = 1;
-
-            rightRotate(parent);
+            rightRotate(avlNode);
         }
 
         private void rightLeftRotate(AvlNode<int> avlNode)
         {
-            var parent = avlNode;
-            var subR = parent.RightChild;
-            var subRL = subR.LeftChild;
-            var bv = subRL.BlanceValue;
-
-            rightRotate(subR);
-            leftRotate(parent);
-            if (bv == -1)
-            {
-                parent.BlanceValue = 1;
-                subR.BlanceValue = 0;
-            }
-            if (subR.RightChild != null)
-            {
-                var subRsubR = subR.RightChild;
-                var subRsubRL = subRsubR.LeftChild;
-
-                subR.RightChild = subRsubRL;
-                subRsubRL.Parent = subR;
-                subRsubRL.RightChild = subRsubR;
-                subRsubR.Parent = subRsubRL;
-
-                subRsubR.BlanceValue = 0;
-                subRsubRL.BlanceValue = -1;
-            }
-            else
-            {
-                var subRL = subR.LeftChild;
-                parent.RightChild = subRL;
-                subRL.Parent = parent;
-                subRL.RightChild = subR;
-                subR.Parent = subRL;
-                subR.LeftChild = null;
-            }
-
-            leftRotate(parent);
+            rightRotate(avlNode.RightChild);
+            leftRotate(avlNode);
         }
         #endregion
 
