@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rainier.DynamicPlanning", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rainnier.Algorithm.ThreadSync", "Rainnier.Algorithm.ThreadSync\Rainnier.Algorithm.ThreadSync.csproj", "{09221111-1D5F-4E5B-8237-C4379FD5A204}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rainnier.Algorithm.Practise", "Rainnier.Algorithm.Practise\Rainnier.Algorithm.Practise.csproj", "{C7FA3548-6296-46BB-BD38-28FFF64C9550}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{09221111-1D5F-4E5B-8237-C4379FD5A204}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{09221111-1D5F-4E5B-8237-C4379FD5A204}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{09221111-1D5F-4E5B-8237-C4379FD5A204}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7FA3548-6296-46BB-BD38-28FFF64C9550}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7FA3548-6296-46BB-BD38-28FFF64C9550}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7FA3548-6296-46BB-BD38-28FFF64C9550}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7FA3548-6296-46BB-BD38-28FFF64C9550}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
