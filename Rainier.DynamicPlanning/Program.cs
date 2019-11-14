@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Rainier.DynamicPlanning.Coins;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,8 +11,17 @@ namespace Rainier.DynamicPlanning
     {
         static void Main(string[] args)
         {
+            int[] arr = new int[3] { 5,2,1};
+            int[] arr2 = new int[9] { 7,3,2,1,5,4,10,6,7 };
+            int[] arr3 = new int[10] { 7, 3, 1, 5, 6,7, 4, 10, 6, 7 };
+            int[] arr4 = new int[10] { 1,2,4,2,5,7,2,4,9,0 };
+            int aim = 16;
             Console.WriteLine(FeiBoNaQiShuLie.getItemRecusive(24));
-            Console.WriteLine(FeiBoNaQiShuLie.k);
+            Console.WriteLine(CoinAim.MinCoinCount(arr,aim));
+            Console.WriteLine(GreatestPointOfBuySaleStock.MaxIncome(arr2));
+            Console.WriteLine(GreatestPointOfBuySaleStock.MaxIncome2(arr2));
+            Console.WriteLine(GreatestPointOfBuySaleStock.MaxIncome3(arr3));
+
             Console.ReadKey();
             //int[] array = new int[16] { 0, 8, 4, 12, 2, 10, 6, 14, 1, 9, 5, 13, 3, 11, 7, 15 };
             //var msis = new MSIS();
