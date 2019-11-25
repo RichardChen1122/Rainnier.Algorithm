@@ -10,8 +10,6 @@ namespace Rainnier.Algorithm
     {
         static void Main(string[] args)
         {
-
-
             //build test tree
 
             var rootNode = new Node<int>(1);
