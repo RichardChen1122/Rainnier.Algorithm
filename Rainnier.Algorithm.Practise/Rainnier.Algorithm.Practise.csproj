@@ -43,6 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Arrays\Question1.cs" />
+    <Compile Include="Arrays\Question3.cs" />
+    <Compile Include="Arrays\Question5.cs" />
     <Compile Include="DP\Question70.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
