@@ -19,9 +19,11 @@ namespace Rainnier.Algorithm.Practise
             //Console.Write(q.LengthOfLongestSubstring("pwwkew"));
 
 
-            var y = new Question5();
+            var y = new Question11();
 
-            Console.Write(y.LongestPalindrome("aacdefcaa"));
+            var input = new int[9] { 1, 8, 6, 2, 5, 4, 8, 3, 7 };
+
+            Console.Write(y.MaxArea(input));
 
             
             Console.ReadKey();

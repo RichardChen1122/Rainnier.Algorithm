@@ -54,8 +54,13 @@ namespace Rainnier.Algorithm.Practise.Arrays
                         dp[i, j] = dp[i - 1, j - 1] + 1;
                         if (dp[i, j] > max)
                         {
-                            max = dp[i, j];
-                            maxPosition = j;
+                            int beforeRev = s.Length - j;
+                            //********关键的判断********
+                            if (beforeRev + dp[i, j] == i)
+                            {
+                                max = dp[i, j];
+                                maxPosition = j;
+                            }
                         }
                     }
                     else

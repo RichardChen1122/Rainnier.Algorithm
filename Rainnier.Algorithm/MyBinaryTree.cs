@@ -230,6 +230,7 @@ namespace Rainnier.Algorithm
             var queue = new Queue<Node<T>>();
 
             queue.Enqueue(node);
+
             while (queue.Count > 0)
             {
                 var first = queue.Dequeue();
@@ -263,8 +264,97 @@ namespace Rainnier.Algorithm
             }
             return left == null ? right : left;
         }
-    
 
+        public bool IsValidBST2(Node<int> root)
+        {
+            var current = root;
+            int? previous = null;
+            var tempStack = new Stack<Node<int>>();
+            while (current != null)
+            {
+                tempStack.Push(current);
+                current = current.LeftChild;
+                while (current == null && tempStack.Count > 0)
+                {
+                    var top = tempStack.Pop();
+                    if (previous!=null && top.Data <= previous)
+                    {
+                        return false;
+                    }
+                    previous = top.Data;
+                    current = top.RightChild;
+                }
+            }
+
+            return true;
+        }
+
+        public bool IsValidBST3(Node<int> root)
+        {
+            int? previous = null;
+            return midOrder(root, ref previous);
+
+        }
+
+        public bool midOrder(Node<int> root, ref int? previous)
+        {
+            bool result1 = true;
+            bool result2 = true;
+            if (root == null)
+            {
+                return true;
+            }
+
+            result1 = midOrder(root.LeftChild, ref previous);
+            if (previous!=null && root.Data <= previous)
+            {
+                return false;
+            }
+            previous = root.Data;
+            result2 = midOrder(root.RightChild, ref previous);
+
+            return result1 && result2;
+        }
+
+        public bool IsValidBST(Node<int> root)
+        {
+            return help2(root, null,null);
+        }
+
+
+        public bool help(Node<int> root, int lower, int higher)
+        {
+            if (root == null)
+            {
+                return true;
+            }
+            if (root.Data >= higher || root.Data <= lower)
+            {
+                return false;
+            }
+
+            return help(root.LeftChild,lower, root.Data) && help(root.RightChild, root.Data, higher);
+        }
+
+        public bool help2(Node<int> root, int? lower, int? higher)
+        {
+            if (root == null)
+            {
+                return true;
+            }
+
+            int val = root.Data;
+            if(higher != null && root.Data>= higher)
+            {
+                return false;
+            }
+            if (lower != null && root.Data <= lower)
+            {
+                return false;
+            }
+
+            return help2(root.LeftChild, lower, root.Data) && help2(root.RightChild, root.Data, higher);
+        }
         #endregion
     }
 }
