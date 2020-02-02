@@ -10,12 +10,12 @@ namespace Rainnier.Algorithm.Sort
     {
         static void Main(string[] args)
         {
-            CodeTimer.Initialize();
-            CodeTimer.Time("Bubble", 1000000, ()=>RegularSort.BubbleSort());
+            //CodeTimer.Initialize();
+            //CodeTimer.Time("Bubble", 1000000, ()=>RegularSort.BubbleSort());
             //int[] array = new int[10] { 5, 4, 35, 48, 22, 16, 34, 10, 77, 100 };
 
             //RegularSort.BubbleSort();
-
+            TestMethod();
 
 
             Console.ReadKey();
@@ -23,9 +23,15 @@ namespace Rainnier.Algorithm.Sort
 
         static void TestMethod()
         {
-            int[] array = new int[10] { 10,9,8,7,6,5,4,3,2,1};
-            //int[] array = new int[10] { 5, 4, 35, 48, 22, 16, 34, 10, 77, 100 };
-            QuickSort.QuickSortMethod(array, 0, 9);
+            //int[] array = new int[10] { 10,9,8,7,6,5,4,3,2,1};
+            int[] array = new int[10] { 5, 4, 35, 48, 22, 16, 34, 10, 77, 100 };
+            //QuickSort.QuickSortMethod(array, 0, 9);
+            MergeSort.SortMethod(array, 0, 9);
+
+            foreach(var a in array)
+            {
+                Console.WriteLine(a);
+            }
         }
     }
 }

@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Rainnier.Algorithm.Sort
 {
+    //堆一定是一个完全二叉树，完全二叉树有一定的性质：
+    //左节点的下标一定是基数，右节点的下标一定是偶数
+    //父节点的下标是i，那么: 他的左子节点下标为2i+1，他的右子节点下标为2i+2
     public class HeapSort
     {
         public static void SortMethod(int[] array)
