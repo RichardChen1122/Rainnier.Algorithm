@@ -359,6 +359,21 @@ namespace Rainnier.Algorithm
             return root;
         }
 
+        //public int getLongestSumPath(Node root, int sum)
+        //{
+        //    Dictionary<int, int> sumMap = new Dictionary<int, int>();
+
+            
+
+        //}
+
+        //public int RescuriveGetLongest(Node root, int sum, Dictionary<int,int> sumMap, int level)
+        //{
+        //    if (root == null)
+        //    {
+        //        return 
+        //    }
+        //}
 
         #endregion
     }

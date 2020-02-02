@@ -43,7 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Coins\CoinAim.cs" />
     <Compile Include="FeiBoNaQiShuLie.cs" />
+    <Compile Include="GreatestPointOfBuySaleStock.cs" />
     <Compile Include="LCS\LCS.cs" />
     <Compile Include="MinimumDistance\MinimumDistance.cs" />
     <Compile Include="MSIS\MSIS.cs" />

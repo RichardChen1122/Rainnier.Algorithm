@@ -4,15 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C0665236-D008-4799-AF16-D939A1CF5016}</ProjectGuid>
+    <ProjectGuid>{C7FA3548-6296-46BB-BD38-28FFF64C9550}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Rainnier.Algorithm.Stack</RootNamespace>
-    <AssemblyName>Rainnier.Algorithm.Stack</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <RootNamespace>Rainnier.Algorithm.Practise</RootNamespace>
+    <AssemblyName>Rainnier.Algorithm.Practise</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -44,16 +43,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="LinkList\MyLinkStack.cs" />
+    <Compile Include="Arrays\Question1.cs" />
+    <Compile Include="Arrays\Question3.cs" />
+    <Compile Include="Arrays\Question5.cs" />
+    <Compile Include="Arrays\Question11.cs" />
+    <Compile Include="DP\Question70.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ReverseStack.cs" />
+    <Compile Include="Strings\Question1247.cs" />
+    <Compile Include="Arrays\Question1250.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Array\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
