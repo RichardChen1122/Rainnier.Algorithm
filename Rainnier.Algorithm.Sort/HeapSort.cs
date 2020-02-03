@@ -50,11 +50,97 @@ namespace Rainnier.Algorithm.Sort
             array[i] = temp;//将temp值放到最终的位置
         }
 
-        public static void Swap(int[] arr, int a, int b)
+        internal static void Swap(int[] arr, int a, int b)
         {
             int temp = arr[a];
             arr[a] = arr[b];
             arr[b] = temp;
+        }
+    }
+
+    public class MyHeapSort
+    {
+        public static void SortMethod(int[] arr, int length)
+        {
+            if (length > 1)
+            {
+                for (int i = arr.Length / 2 - 1; i >= 0; i--)
+                {
+                    heapify(arr, i, length);
+                }
+                HeapSort.Swap(arr, 0, length - 1);
+                SortMethod(arr, --length);
+
+            }
+        }
+
+        private static void heapify(int[] arr, int i, int length)
+        {
+            int left= 2*i + 1;
+            int right = 2 * i + 2;
+
+            int root = arr[i];
+            int position=i;
+
+            if(left<length && arr[left] > arr[i])
+            {
+                arr[i] = arr[left];
+                position = left;
+            }
+            if(right<length && arr[right] > arr[i])
+            {
+                arr[i] = arr[right];
+                position = right;
+            }
+
+            arr[position] = root;
+
+            if (position != i)
+            {
+                heapify(arr, position, length);
+            }
+        }
+    }
+
+    public class NoRecursiveHeapSort
+    {
+        public static void SortMethod(int[] arr)
+        {
+            for(int i = arr.Length - 1; i > 0; i--)
+            {
+                buildMaximumHeap(arr, i + 1);
+                HeapSort.Swap(arr, 0, i);
+            }
+        }
+
+        private static void buildMaximumHeap(int[] arr, int length)
+        {
+            for (int i = length / 2 - 1; i >= 0; i--)
+            {
+                heapify(arr, i, length);
+            }
+        }
+
+        private static void heapify(int[] arr, int i, int length)
+        {
+            int left = 2 * i + 1;
+            int right = 2 * i + 2;
+
+            int root = arr[i];
+            int position = i;
+
+            if (left < length && arr[left] > arr[i])
+            {
+                arr[i] = arr[left];
+                position = left;
+            }
+            if (right < length && arr[right] > arr[i])
+            {
+                arr[i] = arr[right];
+                position = right;
+            }
+
+            arr[position] = root;
         }
     }
 }

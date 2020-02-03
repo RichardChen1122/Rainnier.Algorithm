@@ -53,7 +53,8 @@ namespace Rainnier.Algorithm.Sort
 
             if (j == right+1)
             {
-                for (int k = i; k < mid+1;k++)
+                for (int k = i; k < mid+1;
+                    k++)
                 {
                     temp[current] = arr[k];
                     current++;
