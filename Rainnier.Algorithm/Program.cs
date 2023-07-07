@@ -33,9 +33,9 @@ namespace Rainnier.Algorithm
             tt.kk = new Test();
 
 
-            Console.WriteLine(tt.Method());
+            //Console.WriteLine(tt.Method());
             //AnyTreeTest();
-            //BinaryTreeTest();
+            BinaryTreeTest();
             //build test tree
 
 
@@ -62,6 +62,7 @@ namespace Rainnier.Algorithm
             // var node62 = testTree.InsertRight(node6, 15);
             //var node62 = testTree.InsertRight(node6, 0);
             //var node622 = testTree.InsertRight(node62, 23);
+          
             var str = testTree.LevelOrderSeriliazeBinaryTree(rootNode);
             int[] preOrder = new int[9] { 10, 5, 1, 8, 6, 9, 12, 11, 13 };
             int[] midOrder = new int[9] { 1, 5, 6, 8, 9, 10, 11, 12, 13 };

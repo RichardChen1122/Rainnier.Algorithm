@@ -417,6 +417,33 @@ namespace Rainnier.Algorithm
             }
             return false;
         }
+        public Node<int> NodeSearch2(Node<int> root, Stack<Node<int>> stack, Node<int> searchNode)
+        {
+            if (root == null)
+            {
+                return null;
+            }
+
+            //#1放这里也可以
+
+            var left = NodeSearch2(root.LeftChild, stack, searchNode);
+            var right = NodeSearch2(root.RightChild, stack, searchNode);
+
+            //这段代码#1放上面也可以--------------
+            if (root == searchNode)
+            {
+                stack.Push(root);
+                return root;
+            }
+            //-----------------------------------
+
+            if (left != null|| right!=null)
+            {
+                stack.Push(root);
+                return root;
+            }
+            return null;
+        }
 
         public void NodeSearchNoRecursion(Node<int> root, Stack<Node<int>> stack, Node<int> searchNode)
         {
