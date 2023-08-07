@@ -62,6 +62,8 @@ namespace Rainnier.Algorithm
             // var node62 = testTree.InsertRight(node6, 15);
             //var node62 = testTree.InsertRight(node6, 0);
             //var node622 = testTree.InsertRight(node62, 23);
+
+            testTree.MorrisTraverse(rootNode);
           
             var str = testTree.LevelOrderSeriliazeBinaryTree(rootNode);
             int[] preOrder = new int[9] { 10, 5, 1, 8, 6, 9, 12, 11, 13 };

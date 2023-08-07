@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Rainnier.Algorithm
 {
+    //平衡二叉搜索树
     public class AVLTree
     {
         AvlNode<int> root;

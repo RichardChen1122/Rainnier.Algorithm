@@ -387,6 +387,122 @@ namespace Rainnier.Algorithm
             }
             return a && b;
         }
+
+
+        //和下面的MorrisTraverse2写法效果是一样的 (都是前序遍历)
+        /*
+         * 记作当前节点为cur。
+
+            1. 如果cur无左孩子，cur向右移动（cur=cur.right）
+            2. 如果cur有左孩子，找到cur左子树上最右的节点，记为mostright
+                a.如果mostright的right指针指向空，让其指向cur，cur向左移动（cur=cur.left）
+                b.如果mostright的right指针指向cur，让其指向空，cur向右移动（cur=cur.right）
+
+            实现以上的原则，即实现了morris遍历。
+
+        总结：
+        默认都是优先往左走， 往右走需要满足的两种情况之一：
+        1. cur 没有左孩子 （没有左子树）
+        2. cur 的左子树的最右节点的右子树是当前节点（当前节点的左子树已被完全遍历过了）
+
+        左子树的最右边的叶子节点的右节点用来存储当前的节点，当发现该节点为空时，就让它指向cur ， 然后往左走，
+        等走啊走， 再走到这个最右边的这个节点的时候， 他就指向了之前存下来的那个节点， 就回溯上去了
+         * 
+         * 参考 https://zhuanlan.zhihu.com/p/101321696
+         */
+        public void MorrisTraverse(Node<int> current)
+        {
+            if (current == null)
+            {
+                return;
+            }
+
+            while (current != null)
+            {
+                if (current.LeftChild == null)
+                {
+                    Console.WriteLine(current.Data);
+                    current = current.RightChild;
+                }
+                else
+                {
+                    var mostright = FindTheMostRightNode(current);
+
+                    if (mostright.RightChild == null)
+                    {
+                        mostright.RightChild = current;
+
+                        Console.WriteLine(current.Data);
+
+                        current = current.LeftChild;
+                    }
+                    else
+                    {
+                        if (mostright.RightChild == current)
+                        {
+                            mostright.RightChild = null;
+                            current = current.RightChild;
+                        }
+                    }
+                }
+            }
+        }
+
+
+        //和上面的写法效果是一样的
+        public void MorrisTraverse2(Node<int> current)
+        {
+            if (current == null)
+            {
+                return;
+            }
+
+            Node<int> mostright = null;
+
+            while (current != null)
+            {
+                mostright = current.LeftChild;
+                if (mostright != null)
+                {
+                    while(mostright.RightChild != null&& mostright.RightChild != current)
+                    {
+                        mostright = mostright.RightChild;
+                    }
+
+                    if(mostright.RightChild == null)
+                    {
+                        mostright.RightChild= current;
+                        Console.WriteLine(current.Data);
+                        current = current.LeftChild;
+
+                        continue;
+                    }
+                    else
+                    {
+                        mostright.RightChild = null;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine(current.Data);
+                }
+                current = current.RightChild;
+            }
+        }
+
+        private Node<int> FindTheMostRightNode(Node<int> root)
+        {
+            var current = root.LeftChild;
+
+            while (current.RightChild != null && current.RightChild != root)
+            {
+                current = current.RightChild;
+            }
+
+            return current;
+        }
+
+
         #endregion
 
         #region 路径查找
